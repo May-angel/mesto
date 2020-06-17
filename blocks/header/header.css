@@ -1,0 +1,26 @@
+@import url(./__logo/header__logo.css);
+
+.header {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    max-width: 882px;
+    box-sizing: border-box;
+    margin: 0 auto 40px;
+    padding-top: 45px;
+    display: flex;
+    border-bottom: solid rgba(84, 84, 84, 0.7) 1px;
+    background-color: #000000;
+}
+
+@media all and (max-width : 900px) {
+    .header {
+        max-width: 100%;
+        padding-top: 28px;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 42px;
+    }
+}
