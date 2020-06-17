@@ -6,7 +6,7 @@ ___
 Модальное окно создано на языке **Java Script**.
 В качестве редактора использовался **VS**. <br>
 ___
-Ссылка на проект: https://may-angel.github.io/russian-travel/index.html
+Ссылка на проект:  https://may-angel.github.io/mesto/index.html
 ___
 Исполнитель: **Васильева Мария**
 e-mail: <MariiiaVasileva@yandex.ru>
