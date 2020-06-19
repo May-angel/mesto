@@ -2,8 +2,9 @@
     width: 150px;
     height: 50px;
     padding: 0;
-    background: transparent url(../../../images/AddButton.svg) no-repeat center;
-    border: 1px solid #ffffff;
+    background: transparent url(../../../images/add-button.svg) no-repeat center;
+    border: 2px solid #ffffff;
+    border-radius: 2px;
     cursor: pointer;
 }
 

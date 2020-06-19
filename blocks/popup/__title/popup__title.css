@@ -1,8 +1,10 @@
 .popup__title {
     margin: 0;
-    max-width: 330px;
+    max-width: 358px;
+    margin: 0 auto;
     margin-top: 34px;
-    margin-left: 36px;
+    padding-left: 36px;
+    padding-right: 36px;
     font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
     font-weight: 900;

@@ -1,28 +1,26 @@
 let popup = document.querySelector('.popup');
 let popupEditButton = document.querySelector('.profile__edit-button');
-let popupCloseButton = popup.querySelector('.popup__close-icon');
-let popupSaveButton = popup.querySelector('.popup__save-button');
+const popupCloseButton = popup.querySelector('.popup__close-icon');
 let formElement = document.querySelector('.popup__form'); 
+let nameInput = formElement.querySelector('#name');
+let jobInput = formElement.querySelector('#occupation');
+let name = document.querySelector('.profile__name');
+let occupation = document.querySelector('.profile__occupation');
 
-let popupToggle = function (event) {
+function popupToggle (event) {
     popup.classList.toggle('popup_opened')
+    nameInput.textContent = name.value;
+    jobInput.textContent = occupation.value; 
 }
 
-let popupCloseOverlay = function (event) {
+function popupCloseOverlay (event) {
     if (event.target !== event.currentTarget) { return }
     popupToggle() 
 }
 
-
-
 function formSubmitHandler (evt) {
     evt.preventDefault();
   
-    let nameInput = formElement.querySelector('.popup__input-name');
-    let jobInput = formElement.querySelector('.popup__input-occupation');
-    let name = document.querySelector('.profile__name');
-    let occupation = document.querySelector('.profile__occupation');
-    
     name.textContent = nameInput.value;
     occupation.textContent = jobInput.value; 
     popupToggle();
