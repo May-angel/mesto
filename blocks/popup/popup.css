@@ -3,7 +3,7 @@
 @import url(./__title/popup__title.css);
 @import url(./__form/popup__form.css);
 @import url(./__input/popup__input.css);
-@import url(./__input-occupation/popup__input-occupation.css);
+@import url(./__input/_occupation/popup__input_occupation.css);
 @import url(./__save-button/popup__save-button.css);
 
 .popup {

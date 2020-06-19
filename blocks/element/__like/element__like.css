@@ -1,9 +1,13 @@
 .element__like {
     width: 21px;
-    height: 18px;
+    height: 19px;
     margin: 0;
     padding: 0;
     border: 0;
     background: transparent url(../../../images/like.svg) no-repeat center;
     align-self: center;
+}
+
+.element__like:hover {
+    opacity: 0.6;
 }
