@@ -7,8 +7,11 @@
     padding-bottom: 36.51px;
 }
 
-@media screen and (max-width : 436px) {
+@media screen and (max-width : 494px) {
     .popup__form {
-        max-width: 80%;
+        max-width: 83.33%;
+        margin-top: 36px;
+        padding: 0;
+        padding-bottom: 30px;
     }
 }

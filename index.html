@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Четвертая проектная работа Марии Васильевой на Яндекс.Практикуме">
+  <meta name="description" content="Четвертая и пятая проектные работы Марии Васильевой на Яндекс.Практикуме">
   <meta name="keywords" content="html, css, javascript">
   <meta name="author" content="Мария Васильева">
   <title>Mesto Russia</title>
@@ -23,56 +23,23 @@
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <p class="profile__occupation">Исследователь океана</p>
                 </div>
-                <button class="profile__edit-button" type="button">
+                <button  data-toggle-id="profile-edit" class="profile__edit-button" type="button" data-popup-feature="popup-edit-profile">
                 </button>
             </div>
-            <button class="profile__add-button" type="button">
+            <button data-toggle-id="profile-add" class="profile__add-button" type="button" data-popup-feature="popup-add-element">
             </button>
         </section>
         <section class="elements">
-            <article class="element">
-                <img class="element__photo" src="images/karachaevsk.jpg" alt="Карачаевск">
-                <div class="element__info">
-                    <h2 class="element__title">Карачаевск</h2>
-                    <button class="element__like" type="button"></button>
-                </div>
-            </article>
-            <article class="element">
-                <img class="element__photo" src="images/elbrus.jpg" alt="Гора Эльбрус">
-                <div class="element__info">
-                    <h2 class="element__title">Гора Эльбрус</h2>
-                    <button class="element__like"></button>
-                </div>   
-            </article>
-            <article class="element">
-                <img class="element__photo" src="images/dombay.jpg" alt="Домбай">
-                <div class="element__info">
-                    <h2 class="element__title">Домбай</h2>
-                    <button class="element__like"></button>
-                </div>
-            </article>
-            <article class="element">
-                <img class="element__photo" src="images/elbrus.jpg" alt="Гора Эльбрус">
-                <div class="element__info">
-                    <h2 class="element__title">Гора Эльбрус</h2>
-                    <button class="element__like"></button>
-                </div>    
-            </article>
-            <article class="element">
-                <img class="element__photo" src="images/dombay.jpg" alt="Домбай">
-                <div class="element__info">
-                    <h2 class="element__title">Домбай</h2>
-                    <button class="element__like"></button>
-                </div>
-            </article>
-            <article class="element">
-                <img class="element__photo" src="images/karachaevsk.jpg" alt="Карачаевск">
-                <div class="element__info">
-                    <h2 class="element__title">Карачаево-Черкессия</h2>
-                    <button class="element__like"></button>
-                </div>    
-            </article>
-           
+            <template class="template-element">
+                <article class="element">
+                    <img data-image-id="photo-zoom" class="element__photo" src="#" alt="#">
+                    <div class="element__info">
+                        <h2 class="element__title"></h2>
+                        <button class="element__like" type="button"></button>
+                        <button class="element__trash" type="button"></button>
+                    </div>
+                </article>
+            </template>
         </section>
         
     </main>
@@ -81,14 +48,35 @@
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
 
-    <section class="popup">
+    <section id="profile-edit" class="popup popup_profile">
         <div class="popup__container">
             <button class="popup__close-icon" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form" name="edit-form" method="POST" action="/">
+            <form class="popup__form popup__form_profile" name="edit-form" method="POST" action="/">
                 <input type="text" class="popup__input" id="name" name="popup-input-name"  value="Жак-Ив Кусто" placeholder="Имя Фамилия">
-                <input type="text" class="popup__input popup__input_occupation" name="popup-input-occupation" id="occupation" value="Исследователь океана" placeholder="Род деятельности">
+                <input type="text" class="popup__input popup__input_decor" name="popup-input-occupation" id="occupation" value="Исследователь океана" placeholder="Род деятельности">
                 <button type="submit" class="popup__save-button">Сохранить</button>
+            </form>
+        </div>
+    </section>
+    <section id="profile-add" class="popup popup_element">
+        <div class="popup__container">
+            <button class="popup__close-icon" type="button"></button>
+            <h2 class="popup__title">Новое место</h2>
+            <form class="popup__form popup__form_element" name="add-form" method="POST" action="/">
+                <input type="text" class="popup__input" id="title" name="popup-add-title"  value="" placeholder="Название">
+                <input type="url" class="popup__input popup__input_decor" name="popup-input-link" id="link" value="" placeholder="Ссылка на картинку">
+                <button type="submit" class="popup__save-button">Создать</button>
+            </form>
+        </div>
+    </section>
+    <section id="photo-zoom" class="popup popup_image">
+        <div class="popup__image-container">
+            <button class="popup__close-icon" type="button"></button>
+            <div class="popup__card-zoom">
+                <img class="popup__image-zoom" src="#" alt="#">
+                <h3 class="popup__subtitle"></h3>
+            </div>  
             </form>
         </div>
     </section>

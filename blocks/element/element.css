@@ -2,9 +2,13 @@
 @import url(./__info/element__info.css);
 @import url(./__title/element__title.css);
 @import url(./__like/element__like.css);
+@import url(./__like/_active/element__like_active.css);
+@import url(./__trash/element__trash.css);
 
 .element {
+    position: relative;
     max-width: 282px;
+    height: 361px;
     display: block;
     object-fit: cover;
     margin: 0; 
