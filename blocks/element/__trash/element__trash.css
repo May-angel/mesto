@@ -7,7 +7,7 @@
     margin: 0;
     padding: 0;
     border: 0;
-    background: transparent url(../../../images/trash.svg) no-repeat center;
+    background: transparent url(../../../images/trash-icon.svg) no-repeat center;
     align-self: center;
     cursor: pointer;
 }
