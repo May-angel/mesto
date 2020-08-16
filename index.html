@@ -23,16 +23,16 @@
                     <h1 class="profile__name">Жак-Ив Кусто</h1>
                     <p class="profile__occupation">Исследователь океана</p>
                 </div>
-                <button  data-toggle-id="profile-edit" class="profile__edit-button" type="button" data-popup-feature="popup-edit-profile">
+                <button  data-path="edit" class="profile__button profile__edit-button" type="button" data-popup-feature="popup-edit-profile">
                 </button>
             </div>
-            <button data-toggle-id="profile-add" class="profile__add-button" type="button" data-popup-feature="popup-add-element">
+            <button data-path="add" class="profile__button profile__add-button" type="button" data-popup-feature="popup-add-element">
             </button>
         </section>
         <section class="elements">
             <template class="template-element">
                 <article class="element">
-                    <img data-image-id="photo-zoom" class="element__photo" src="#" alt="#">
+                    <img data-path="image" class="element__photo profile__button" src="#" alt="#">
                     <div class="element__info">
                         <h2 class="element__title"></h2>
                         <button class="element__like" type="button"></button>
@@ -48,7 +48,7 @@
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
 
-    <section id="profile-edit" class="popup popup_profile">
+    <section id="profile-edit" class="popup popup_profile" data-target="edit">
         <div class="popup__container">
             <button class="popup__close-icon" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
@@ -59,7 +59,7 @@
             </form>
         </div>
     </section>
-    <section id="profile-add" class="popup popup_element">
+    <section id="profile-add" class="popup popup_element" data-target="add">
         <div class="popup__container">
             <button class="popup__close-icon" type="button"></button>
             <h2 class="popup__title">Новое место</h2>
@@ -70,7 +70,7 @@
             </form>
         </div>
     </section>
-    <section id="photo-zoom" class="popup popup_image">
+    <section id="photo-zoom" class="popup popup_image" data-target="image">
         <div class="popup__image-container">
             <button class="popup__close-icon" type="button"></button>
             <div class="popup__card-zoom">
