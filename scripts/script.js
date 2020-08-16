@@ -84,7 +84,6 @@ const btns = document.querySelectorAll('.profile__button');
 btns.forEach((el) => {
     el.addEventListener('click', (e) => {
         let path = e.currentTarget.getAttribute('data-path');
-
         document.querySelector(`[data-target="${path}"]`).classList.toggle('popup_opened');
     })
 });
@@ -94,7 +93,6 @@ btns.forEach((el) => {
 function popupClose (item) {
     item.addEventListener('click', function(e) {
         let parentPopup = event.target.closest('.popup');
-         console.log ('parentPopup is: '+parentPopup);
          parentPopup.classList.toggle('popup_opened');
    });
   };
@@ -124,7 +122,6 @@ function profileFormSubmitHandler(evt) {
   
    profileName.textContent = nameInput.value;
    occupation.textContent = jobInput.value; 
-   console.log(event.target)
    popupClose(event.target);
 };
 //ДЛЯ СОХРАНЕНИЯ ВВЕДЕННЫХ ДАННЫХ В ФОРМЕ ДОБАВЛЕНИЯ НОВОЙ КАРТОЧКИ
