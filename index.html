@@ -50,7 +50,7 @@
 
     <section id="profile-edit" class="popup popup_profile" data-target="edit">
         <div class="popup__container">
-            <button class="popup__close-icon" type="button"></button>
+            <button class="popup__close-icon popup__close-icon_edit" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
             <form class="popup__form popup__form_profile" name="edit-form" method="POST" action="/">
                 <input type="text" class="popup__input" id="name" name="popup-input-name"  value="Жак-Ив Кусто" placeholder="Имя Фамилия">
@@ -61,7 +61,7 @@
     </section>
     <section id="profile-add" class="popup popup_element" data-target="add">
         <div class="popup__container">
-            <button class="popup__close-icon" type="button"></button>
+            <button class="popup__close-icon popup__close-icon_add" type="button"></button>
             <h2 class="popup__title">Новое место</h2>
             <form class="popup__form popup__form_element" name="add-form" method="POST" action="/">
                 <input type="text" class="popup__input" id="title" name="popup-add-title"  value="" placeholder="Название">
@@ -72,7 +72,7 @@
     </section>
     <section id="photo-zoom" class="popup popup_image" data-target="image">
         <div class="popup__image-container">
-            <button class="popup__close-icon" type="button"></button>
+            <button class="popup__close-icon popup__close-icon_photo" type="button"></button>
             <div class="popup__card-zoom">
                 <img class="popup__image-zoom" src="#" alt="#">
                 <h3 class="popup__subtitle"></h3>
