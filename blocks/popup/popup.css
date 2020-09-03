@@ -3,6 +3,7 @@
 @import url(./__title/popup__title.css);
 @import url(./__form/popup__form.css);
 @import url(./__input/popup__input.css);
+@import url(./__text-error/popup__text-error.css);
 @import url(./__input/_decor/popup__input_decor.css);
 @import url(./__save-button/popup__save-button.css);
 @import url(./__image-container/popup__image-container.css);
@@ -10,7 +11,7 @@
 @import url(./__image-zoom/popup__image-zoom.css);
 @import url(./__subtitle/popup__subtitle.css);
 @import url(./_profile/popup_profile.css);
-@import url(./_element/popup_element.css);
+@import url(./_element/popup_add-card.css);
 @import url(./_image/popup_image.css);
 
 .popup {

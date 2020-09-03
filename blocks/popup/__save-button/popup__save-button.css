@@ -1,3 +1,5 @@
+@import url(./__save-button/_inactive/popup__save-button_inactive.css);
+
 .popup__save-button {
     font-family: 'Inter', Arial, sans-serif;
     font-style: normal;
@@ -22,3 +24,4 @@
         line-height: 1.21;
         font-size: 14px;
     }
+}

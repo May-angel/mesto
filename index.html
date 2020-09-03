@@ -52,20 +52,24 @@
         <div class="popup__container">
             <button class="popup__close-icon popup__close-icon_edit" type="button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="popup__form popup__form_profile" name="edit-form" method="POST" action="/">
-                <input type="text" class="popup__input" id="name" name="popup-input-name"  value="Жак-Ив Кусто" placeholder="Имя Фамилия">
-                <input type="text" class="popup__input popup__input_decor" name="popup-input-occupation" id="occupation" value="Исследователь океана" placeholder="Род деятельности">
-                <button type="submit" class="popup__save-button">Сохранить</button>
+            <form class="popup__form popup__form_profile" name="edit-form" method="POST" action="/" novalidate>
+                    <input type="text" class="popup__input" id="profile-name-input" name="popup-input-name"  value="Жак-Ив Кусто" placeholder="Имя Фамилия" required minlength="2" maxlength="40">
+                    <span class='popup__text-error' id='profile-name-input-error'></span>
+                    <input type="text" class="popup__input popup__input_decor" name="popup-input-occupation" id="profile-occupation-input" value="Исследователь океана" placeholder="Род деятельности" required minlength="2" maxlength="200">
+                    <span class='popup__text-error' id='profile-occupation-input-error'></span>
+                    <button type="submit" class="popup__save-button">Сохранить</button>
             </form>
         </div>
     </section>
-    <section id="profile-add" class="popup popup_element" data-target="add">
+    <section id="profile-add" class="popup popup_add-card" data-target="add">
         <div class="popup__container">
             <button class="popup__close-icon popup__close-icon_add" type="button"></button>
             <h2 class="popup__title">Новое место</h2>
-            <form class="popup__form popup__form_element" name="add-form" method="POST" action="/">
-                <input type="text" class="popup__input" id="title" name="popup-add-title"  value="" placeholder="Название">
-                <input type="url" class="popup__input popup__input_decor" name="popup-input-link" id="link" value="" placeholder="Ссылка на картинку">
+            <form class="popup__form popup__form_add-card" name="add-form" method="POST" action="/" novalidate>
+                <input type="text" class="popup__input" id="popup-add-name" name="popup-add-title"  value="" placeholder="Название" required minlength="1" maxlength="30">
+                <span class='popup__text-error' id='popup-add-name-error'></span>
+                <input type="url" class="popup__input popup__input_decor" name="popup-input-link" id="popup-add-url" value="" placeholder="Ссылка на картинку" required>
+                <span class='popup__text-error' id='popup-add-url-error'></span>
                 <button type="submit" class="popup__save-button">Создать</button>
             </form>
         </div>
@@ -83,5 +87,7 @@
   </div>  
 
   <script src="./scripts/script.js"></script>
+  <script src="./scripts/validate.js"></script>
+  <!--<script src="./scripts/validateOwn.js"></script>!-->
 </body> 
 </html>   

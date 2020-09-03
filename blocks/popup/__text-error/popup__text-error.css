@@ -1,0 +1,10 @@
+.popup__text-error {
+  font-size: 12px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  color: red;
+  position: absolute;
+  bottom: 95px;
+  transition: 0.3s;
+}
