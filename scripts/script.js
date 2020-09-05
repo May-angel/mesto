@@ -1,29 +1,3 @@
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
 const popup = document.querySelector('.popup');
 const popups = document.querySelectorAll('.popup');
 const popupEditButton = document.querySelector('.profile__edit-button');
@@ -65,8 +39,8 @@ function createCard(name, link) {
 //УДАЛЕНИЕ КАРТОЧКИ
     const trashButton = element.querySelector('.element__trash');
     trashButton.addEventListener('click', function(event) {
-        if (event.target.className != 'element__trash') return;
-        let card = event.target.closest('.element');
+        event.target.className != 'element__trash';
+        const card = event.target.closest('.element');
         card.remove();
     });
 
@@ -76,7 +50,7 @@ function createCard(name, link) {
         popupImageZoom.src = link;
         popupImageZoom.alt = title;
         popupSubtitle.textContent = title;
-        openPopup (event);
+        openPopup(popupImage);
      });
      
      return element;  
@@ -93,47 +67,37 @@ initialCards.forEach(function(element) {
 });
 
 // ОТКРЫВАЕТ ПОПАП
-function openPopup(e) {
-        const path = e.currentTarget.getAttribute('data-path');
-        document.querySelector(`[data-target="${path}"]`).classList.add('popup_opened');
+function openPopup(popupElement) {
+       popupElement.classList.add('popup_opened');
+        document.addEventListener('keydown', handleEsc);
 };
 
 // ЗАКРЫВАЕТ ПОПАП
 function closePopup(popupElement) {
-        //const parentPopup = event.target.closest('.popup');
         popupElement.classList.remove('popup_opened');
+        document.removeEventListener('keydown', handleEsc);
   };
 
 //ЗАКРЫВАЕТ ПОПАП, ЕСЛИ НАЖАТЬ НА ПУСТУЮ ОБЛАСТЬ
 function closePopupByOverlay(popupElement) {
-   // item.addEventListener('click', function(e) {
     if (event.target !== event.currentTarget) { return }
     closePopup(popupElement);
-    //item.classList.toggle('popup_opened');
- // });
 };
 
 //ЗАКРЫВАЕТ ПОПАП ЕСЛИ НАЖАТЬ НА ESC
-document.addEventListener('keydown', evt => {
+function handleEsc(evt) {
     if (evt.key === 'Escape') {
         const popupOpen = document.querySelector('.popup_opened');
         closePopup(popupOpen)
     }
-});
+};
 
 //АВТОЗАПОЛНЕНИЕ ФОРМЫ РЕДАКТИРОВАНИЯ ПРОФИЛЯ ПРИ ОТКРЫТИИ 
 popupEditButton.addEventListener('click', function() {
    nameInput.textContent = profileName.value;
    jobInput.textContent = occupation.value;
-   openPopup(event); 
-   enableValidation({
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__save-button',
-    inactiveButtonClass: '.popup__save-button_inactive',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__text-error'
- });
+   openPopup(popupEdit); 
+   enableValidation(conFig);
 });
 
 //ДЛЯ СОХРАНЕНИЯ ВВЕДЕННЫХ ДАННЫХ В ФОРМЕ РЕДАКТИРОВАНИЯ ПРОФИЛЯ
@@ -148,25 +112,17 @@ function profileFormSubmitHandler(evt) {
 function elementFormSubmitHandler(evt) {
    evt.preventDefault();
 
-   let name = titleInput.value;
-   let link = urlInput.value; 
+   const name = titleInput.value;
+   const link = urlInput.value; 
    addCard(listElement, createCard(name, link));
    closePopup(popupAdd);
+   document.forms[1].reset();
 };
 
 popupAddButton.addEventListener('click', function() {
-    openPopup(event);
-    enableValidation({
-        formSelector: '.popup__form',
-        inputSelector: '.popup__input',
-        submitButtonSelector: '.popup__save-button',
-        inactiveButtonClass: '.popup__save-button_inactive',
-        inputErrorClass: 'popup__input_type_error',
-        errorClass: 'popup__text-error'
-     });
+    openPopup(popupAdd);
+    enableValidation(conFig);
 });
-
-
 
 popupCloseButtonEdit.addEventListener('click', () => closePopup(popupEdit));
 popupCloseButtonAdd.addEventListener('click', () => closePopup(popupAdd));
