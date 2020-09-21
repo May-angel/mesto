@@ -12,59 +12,34 @@ const popupEdit = document.querySelector('.popup_profile');
 const popupAdd = document.querySelector('.popup_add-card'); 
 const popupImage = document.querySelector('.popup_image'); 
 const listElement = document.querySelector('.elements'); 
-const templateElement = document.querySelector('.template-element').content; 
 const nameInput = formProfile.querySelector('#profile-name-input');
 const jobInput = formProfile.querySelector('#profile-occupation-input');
 const profileName = document.querySelector('.profile__name');
 const occupation = document.querySelector('.profile__occupation');
 const titleInput = formAddCard.querySelector('#popup-add-name');
 const urlInput = formAddCard.querySelector('#popup-add-url');
-const popupSubtitle = document.querySelector('.popup__subtitle');
-const popupImageZoom = document.querySelector('.popup__image-zoom');
+//const templateElement = document.querySelector('.template-element').content; 
+//const popupSubtitle = document.querySelector('.popup__subtitle');
+//const popupImageZoom = document.querySelector('.popup__image-zoom');
 
-//СОЗДАНИЕ КАРТОЧКИ
-function createCard(name, link) {
-    const element = templateElement.cloneNode(true);
-    const elementTitle = element.querySelector('.element__title');
-    elementTitle.textContent = name;
-    const elementPhoto = element.querySelector('.element__photo');
-    elementPhoto.alt = name;
-    elementPhoto.src = link;
-    
-//ПРИМЕНЕНИЕ ЛАЙКА
-    const likeButton = element.querySelector('.element__like');
-    likeButton.addEventListener('click', function(event) {
-    event.target.classList.toggle('element__like_active');
-    });
-//УДАЛЕНИЕ КАРТОЧКИ
-    const trashButton = element.querySelector('.element__trash');
-    trashButton.addEventListener('click', function(event) {
-        event.target.className != 'element__trash';
-        const card = event.target.closest('.element');
-        card.remove();
-    });
+import { FormValidator } from './FormValidator.js';
+import { Card } from './Сard.js';
+import { initialCards } from './const.js';
+import { conFig } from './config-obj.js';
 
-//ОТКРЫТИЕ КАРТИНКИ НА ВЕСЬ ЭКРАН
-    elementPhoto.addEventListener('click', function() {
-        title = event.target.closest('.element').querySelector('.element__title').textContent; 
-        popupImageZoom.src = link;
-        popupImageZoom.alt = title;
-        popupSubtitle.textContent = title;
-        openPopup(popupImage);
-     });
-     
-     return element;  
-};
+//СОЗДАНИЕ ЭКЗЕМПЛЯРА КЛАССА 
+const newCard = new Card();
 
 //ДОБАВЛЕНИЕ КАРТОЧКИ
 function addCard(listElement, element) {
     listElement.prepend(element);
 };
 
-// ОТОБРАЖЕНИЕ КАРТОЧЕК
+//ОТОБРАЖЕНИЕ КАРТОЧЕК
 initialCards.forEach(function(element) {
-    addCard(listElement, createCard(element.name, element.link));
+    addCard(listElement, newCard.createCard(element.name, element.link));
 });
+
 
 // ОТКРЫВАЕТ ПОПАП
 function openPopup(popupElement) {
@@ -97,7 +72,9 @@ popupEditButton.addEventListener('click', function() {
    nameInput.textContent = profileName.value;
    jobInput.textContent = occupation.value;
    openPopup(popupEdit); 
-   enableValidation(conFig);
+   
+   const formValidatorForEditPopup = new FormValidator(conFig, popupEdit);
+   formValidatorForEditPopup._enableValidation();
 });
 
 //ДЛЯ СОХРАНЕНИЯ ВВЕДЕННЫХ ДАННЫХ В ФОРМЕ РЕДАКТИРОВАНИЯ ПРОФИЛЯ
@@ -114,14 +91,16 @@ function elementFormSubmitHandler(evt) {
 
    const name = titleInput.value;
    const link = urlInput.value; 
-   addCard(listElement, createCard(name, link));
+   addCard(listElement, newCard.createCard(name, link));
    closePopup(popupAdd);
    document.forms[1].reset();
 };
 
 popupAddButton.addEventListener('click', function() {
     openPopup(popupAdd);
-    enableValidation(conFig);
+    
+    const formValidatorForAddPopup = new FormValidator(conFig, popupAdd);
+    formValidatorForAddPopup._enableValidation();
 });
 
 popupCloseButtonEdit.addEventListener('click', () => closePopup(popupEdit));

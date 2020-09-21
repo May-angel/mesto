@@ -6,3 +6,5 @@ const conFig = {
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__text-error'
  };
+
+ export {conFig}
