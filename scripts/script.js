@@ -73,8 +73,7 @@ popupEditButton.addEventListener('click', function() {
    jobInput.textContent = occupation.value;
    openPopup(popupEdit); 
    
-   const formValidatorForEditPopup = new FormValidator(conFig, popupEdit);
-   formValidatorForEditPopup._enableValidation();
+
 });
 
 //ДЛЯ СОХРАНЕНИЯ ВВЕДЕННЫХ ДАННЫХ В ФОРМЕ РЕДАКТИРОВАНИЯ ПРОФИЛЯ
@@ -83,15 +82,25 @@ function profileFormSubmitHandler(evt) {
   
    profileName.textContent = nameInput.value;
    occupation.textContent = jobInput.value; 
+
+   const formValidatorForEditPopup = new FormValidator(conFig, popupEdit);
+   formValidatorForEditPopup.enableValidation();
+
    closePopup(popupEdit);
 };
 //ДЛЯ СОХРАНЕНИЯ ВВЕДЕННЫХ ДАННЫХ В ФОРМЕ ДОБАВЛЕНИЯ НОВОЙ КАРТОЧКИ
 function elementFormSubmitHandler(evt) {
    evt.preventDefault();
 
+   const formValidatorForAddPopup = new FormValidator(conFig, popupAdd);
+   formValidatorForAddPopup.enableValidation();
+
    const name = titleInput.value;
    const link = urlInput.value; 
    addCard(listElement, newCard.createCard(name, link));
+
+
+
    closePopup(popupAdd);
    document.forms[1].reset();
 };
@@ -99,8 +108,7 @@ function elementFormSubmitHandler(evt) {
 popupAddButton.addEventListener('click', function() {
     openPopup(popupAdd);
     
-    const formValidatorForAddPopup = new FormValidator(conFig, popupAdd);
-    formValidatorForAddPopup._enableValidation();
+
 });
 
 popupCloseButtonEdit.addEventListener('click', () => closePopup(popupEdit));
@@ -113,3 +121,5 @@ formProfile.addEventListener('submit', profileFormSubmitHandler);
 formAddCard.addEventListener('submit', elementFormSubmitHandler);
 
 
+export {openPopup}
+export {popupImage}

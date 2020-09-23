@@ -1,5 +1,6 @@
 class FormValidator {
     constructor(conFig ,formElement) {
+        this.conFig = conFig;
         this.formSelector = conFig.formSelector;
         this.inputSelector = conFig.inputSelector;
         this.submitButtonSelector = conFig.submitButtonSelector;
@@ -62,16 +63,15 @@ class FormValidator {
         });
     }
     //ПРИМЕНЯЕТ ВАЛИДАЦИЮ
-    _enableValidation() {
+    enableValidation() {
         const formList = Array.from(document.querySelectorAll(this.formSelector));
         formList.forEach((formElement) => {
             formElement.addEventListener('submit', function (evt) {
                 evt.preventDefault();
             });
-                this._setEventListeners();
+                this._setEventListeners;
         });
     }
 }
 
 export {FormValidator}
-import { conFig } from './config-obj.js';
